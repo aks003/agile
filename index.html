@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Blooms Taxonomy</h1>
     <h2>Word to Level</h2>
     <div class="container">
-        <form action="">
-          <div class="row">
-            <div class="col-25" >
-              <label for="fname">Enter the word </label>
-            </div>
-            <div class="col-75">
-              <input onfocusout="wordToLevel()" type="text" id="word" name="word" placeholder="The word..">
-            </div>
+      <form action="" onsubmit="return false">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Enter the word </label>
           </div>
-        </form>
-        <div class="wordToLevel">
-            <div class="col-25">
-                <label for="fname">The level </label>
-              </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="The level..">
-            </div>
+          <div class="col-75">
+            <input
+              onfocusout="wordToLevel()"
+              type="text"
+              id="word"
+              name="word"
+              placeholder="The word.."
+              onkeypress="return searchWordPress(event)"
+            />
+            <input
+              type="submit"
+              id="wordSubmit"
+              onclick="wordToLevel()"
+              onsubmit="wordToLevel()"
+            />
           </div>
-      </div> 
-
-</body>
+        </div>
+      </form>
+      <div class="wordToLevel">
+        <div class="col-25">
+          <label for="fname">The level </label>
+        </div>
+        <div class="col-75">
+          <p id="wordToLevel" class="display">No word entered</p>
+        </div>
+      </div>
+    </div>
+    <h2>Level to Word</h2>
+    <div class="container">
+      <form action="" onsubmit="return false">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Enter the level </label>
+          </div>
+          <div class="col-75">
+            <input
+              onfocusout="levelToWord()"
+              type="text"
+              id="level"
+              name="level"
+              placeholder="The level..(bt1,bt2,bt3,bt4,bt5,bt6)"
+              onkeypress="return searchLevelPress(event)"
+            />
+            <input
+              type="submit"
+              id="levelSubmit"
+              onsubmit="levelToWord()"
+              onclick="levelToWord()"
+            />
+          </div>
+        </div>
+      </form>
+      <div class="wordToLevel">
+        <div class="col-25">
+          <label for="fname">The words </label>
+        </div>
+        <div class="col-75">
+          <p id="levelToWord" class="display">No level entered</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
